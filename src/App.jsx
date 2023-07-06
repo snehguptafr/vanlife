@@ -2,14 +2,15 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import "./App.css";
 
 export default function App() {
   return (
     <BrowserRouter>
       <header>
-        <nav>
-          <img src="./assets/logo.png" alt="Vanlife logo" />
-          <span>
+        <nav className="navbar">
+          <Link to="/"><img className="logo" src="/src/assets/logo.png" alt="Vanlife logo" /></Link>
+          <span className="nav-links">
             <Link to="/about">About</Link>
             <Link to="/vans">Vans</Link>
           </span>
@@ -19,6 +20,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <footer>
+        <p>Ⓒ 2022 #VANLIFE</p>
+      </footer>
     </BrowserRouter>
   );
 }
