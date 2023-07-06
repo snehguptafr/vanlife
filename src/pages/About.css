@@ -1,0 +1,52 @@
+/* .about-cover{
+    height: 30rem;
+    background: url("/src/assets/about-cover.png"), lightgray 50% / cover no-repeat;
+    background-size: cover;
+} */
+.about-cover {
+  width: 100%;
+  height: 500px;
+}
+
+.about {
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.about-content{
+  max-width: 50%;
+  line-height: 1.5;
+}
+
+.about-cta {
+  flex-grow: 1;
+  color: #161616;
+  background-color: #FFCC8D;
+  border-radius: 10px;
+  line-height: 1.5;
+  padding: 2rem;
+}
+.about-cta button{
+  background-color: #161616;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: #f5f5f5;
+  font-weight: 700;
+}
+
+@media (max-width:925px){
+  .about-cover{
+    height: auto;
+  }
+  .about{
+    padding: 2rem;;
+    display: block;
+  }
+  .about-content{
+    max-width: none;
+    margin-bottom: 3rem;
+  }
+}
