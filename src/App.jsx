@@ -3,13 +3,14 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import "./App.css";
+import Logo from "./assets/logo.png"
 
 export default function App() {
   return (
     <BrowserRouter>
       <header>
         <nav className="navbar">
-          <Link to="/"><img className="logo" src="/public/logo.png" alt="Vanlife logo" /></Link>
+          <Link to="/"><img className="logo" src={Logo} alt="Vanlife logo" /></Link>
           <span className="nav-links">
             <Link to="/about">About</Link>
             <Link to="/vans">Vans</Link>

@@ -1,9 +1,10 @@
 // import { Link } from "react-router-dom";
 import "./About.css";
+import AboutCover from "../assets/about-cover.png"
 export default function About() {
   return (
     <>
-      <img src="/public/about-cover.png" className="about-cover" />
+      <img src={AboutCover} className="about-cover" />
       <section className="about">
         <div className="about-content">
           <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>
