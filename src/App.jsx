@@ -9,7 +9,7 @@ export default function App() {
     <BrowserRouter>
       <header>
         <nav className="navbar">
-          <Link to="/"><img className="logo" src="./assets/logo.png" alt="Vanlife logo" /></Link>
+          <Link to="/"><img className="logo" src="/public/logo.png" alt="Vanlife logo" /></Link>
           <span className="nav-links">
             <Link to="/about">About</Link>
             <Link to="/vans">Vans</Link>
