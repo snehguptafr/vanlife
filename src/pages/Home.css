@@ -18,20 +18,3 @@
   font-weight: 500;
   line-height: 1.9;
 }
-
-.home-cta button {
-	font-weight: 700;
-	font-size: 16px;
-	margin-top: 2rem;
-	color: #f5f5f5;
-  border-radius: 5px;
-  border: none;
-  padding: 1rem 3rem;
-  background: #ff8c38;
-	transition: transform .1s ease-in-out;
-}
-
-.home-cta button:hover{
-	cursor: pointer;
-	transform: translate(1px, 1px);
-}

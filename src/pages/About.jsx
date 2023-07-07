@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./About.css";
 import AboutCover from "../assets/about-cover.png"
 export default function About() {
@@ -24,7 +24,7 @@ export default function About() {
             <br />
             Your van is ready.
           </h2>
-          <button>Explore our vans</button>
+          <Link to={"/vans"}><button>Explore our vans</button></Link>
         </div>
       </section>
     </>
