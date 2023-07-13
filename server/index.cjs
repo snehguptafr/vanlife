@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const connectionUrl = process.env.CONNECTION_URL;
 const port = process.env.PORT || 3000;
+// console.log(connectionUrl, port)
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
