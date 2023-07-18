@@ -9,18 +9,18 @@ const connectionUrl = process.env.CONNECTION_URL;
 const port = process.env.PORT || 3000;
 // console.log(connectionUrl, port)
 
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.header(
-//       "Access-Control-Allow-Headers",
-//       "Origin, X-Requested-With, Content-Type, Accept"
-//     );
-//     next();
-//   });
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
-app.use(cors({
-    origin: 'https://mongo-express--candid-kashata-791b9c.netlify.app/vans'
-  }));
+// app.use(cors({
+//     origin: 'https://mongo-express--candid-kashata-791b9c.netlify.app/vans'
+//   }));
 
 app.get("/vans", (req, res) => {
     Van.find({}).then(data => res.send(data));
