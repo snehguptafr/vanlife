@@ -25,7 +25,7 @@ app.get("/vans/:id", (req, res) => {
     Van.findById(id).then(data => res.send(data));
 })
 app.get("/", (req, res) => {
-    res.send("Hello")
+    res.send({message: "Hello"})
 })
 
 app.listen(port, () => {
