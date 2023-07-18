@@ -19,7 +19,7 @@ const port = process.env.PORT || 3000;
 //   });
 
 app.use(cors({
-    origin: 'https://mongo-express--candid-kashata-791b9c.netlify.app/'
+    origin: 'https://mongo-express--candid-kashata-791b9c.netlify.app/vans'
   }));
 
 app.get("/vans", (req, res) => {
