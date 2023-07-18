@@ -6,7 +6,7 @@ import "./Vans.css";
 export default function Vans() {
   const [vans, setVans] = React.useState([]);
   React.useEffect(() => {
-    fetch("https://vanlife-mern.vercel.app/vans/",{mode:"no-cors"})
+    fetch("https://vanlife-mern.vercel.app/vans/",{mode:"cors"})
       .then((res) => res.json())
       .then(data => setVans(data))
       .catch(err => console.log("Some error occurred:\n"+err))
