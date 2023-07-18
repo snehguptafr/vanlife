@@ -9,66 +9,80 @@ const connectionUrl = process.env.CONNECTION_URL;
 const port = process.env.PORT || 3000;
 // console.log(connectionUrl, port)
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-  });
+// app.use((req, res, next) => {
+//   // res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.set({
+//     "Access-Control-Allow-Origin": "https://vanlife-three.vercel.app",
+//     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+//     "Access-Control-Allow-Headers": "Content-Type",
+//   });
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
+
+const corsOptions = {
+  origin: "https://vanlife-three.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
 
 // app.use(cors({
 //     origin: 'https://mongo-express--candid-kashata-791b9c.netlify.app/vans'
 //   }));
 
 app.get("/vans", (req, res) => {
-    Van.find({}).then(data => res.send(data));
-})
+  Van.find({}).then((data) => res.send(data));
+});
 app.get("/vans/:id", (req, res) => {
-    const { id } = req.params;
-    Van.findById(id).then(data => res.send(data));
-})
+  const { id } = req.params;
+  Van.findById(id).then((data) => res.send(data));
+});
 app.get("/", (req, res) => {
-    res.send({message: "Hello"})
-})
+  res.send({ message: "Hello" });
+});
 
 app.listen(port, () => {
-    console.log(`server up on ${port}`);
-})
+  console.log(`server up on ${port}`);
+});
 
-mongoose.connect(connectionUrl)
-    .then(()=>console.log("connected to the database"))
-    .catch((e)=>console.log("error connecting:\n"+e))
+mongoose
+  .connect(connectionUrl)
+  .then(() => console.log("connected to the database"))
+  .catch((e) => console.log("error connecting:\n" + e));
 
 const vanSchema = new mongoose.Schema({
-    _id: String,
-    name: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: Number,
-        required: true
-    },
-    description:{
-        type: String,
-        required: true
-    },
-    imageUrl:{
-        type: String,
-        required: true
-    },
-    type: {
-        type: String,
-        required: true,
-        enum: ["simple", "rugged", "luxury"]
-    },
-    hostId: {
-        type: String,
-        required: true
-    }
-})
+  _id: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+    enum: ["simple", "rugged", "luxury"],
+  },
+  hostId: {
+    type: String,
+    required: true,
+  },
+});
 
 const Van = new mongoose.model("Van", vanSchema);
 
@@ -82,4 +96,3 @@ const Van = new mongoose.model("Van", vanSchema);
 // ])
 //     .then(() => console.log("Entries added"))
 //     .catch(e => console.log("Error:\n"+e));
-
