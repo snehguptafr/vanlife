@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./Vans.css";
+ 
+
 export default function Vans() {
   const [vans, setVans] = React.useState([]);
   React.useEffect(() => {
-    fetch("http://127.0.0.1:3000/vans")
+    fetch("https://vanlife-mern.vercel.app/vans/")
       .then((res) => res.json())
       .then(data => setVans(data))
   }, []);
