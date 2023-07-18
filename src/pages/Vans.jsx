@@ -4,7 +4,7 @@ import "./Vans.css";
 export default function Vans() {
   const [vans, setVans] = React.useState([]);
   React.useEffect(() => {
-    fetch("/vans")
+    fetch("http://127.0.0.1:3000/vans")
       .then((res) => res.json())
       .then(data => setVans(data))
   }, []);
