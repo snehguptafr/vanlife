@@ -10,6 +10,7 @@ export default function VanDetail() {
     fetch(`https://vanlife-mern.vercel.app/vans/${id}`,{mode:"no-cors"})
       .then((res) => res.json())
       .then(data => setVan(data))
+      .catch(err => console.log("Some error occurred:\n"+err))
   }, [id]);
 //   console.log(van);
 

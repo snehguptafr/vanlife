@@ -9,6 +9,7 @@ export default function Vans() {
     fetch("https://vanlife-mern.vercel.app/vans/",{mode:"no-cors"})
       .then((res) => res.json())
       .then(data => setVans(data))
+      .catch(err => console.log("Some error occurred:\n"+err))
   }, []);
 
   const vanCards = vans.map((van) => {
