@@ -9,19 +9,27 @@ const connectionUrl = process.env.CONNECTION_URL;
 const port = process.env.PORT || 3000;
 // console.log(connectionUrl, port)
 
-app.use((req, res, next) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*");
-  res.set({
-    "Access-Control-Allow-Origin": "https://vanlife-three.vercel.app",
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-  });
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   // res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.set({
+//     "Access-Control-Allow-Origin": "https://vanlife-three.vercel.app",
+//     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+//     "Access-Control-Allow-Headers": "Content-Type",
+//   });
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
+
+const corsOptions = {
+  origin: "https://vanlife-three.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
 
 // app.use(cors({
 //     origin: 'https://mongo-express--candid-kashata-791b9c.netlify.app/vans'
