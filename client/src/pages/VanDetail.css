@@ -1,0 +1,42 @@
+.van-detail{
+    padding: 2rem 5rem;
+    color: #161616;
+}
+.vans-link{
+    font-weight: 500;
+    margin-bottom: 2rem ;
+}
+.vans-link a{
+    color: #201F1D;
+}
+
+.details{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+.details .van-type{
+    margin: 1.5rem 0;
+}
+.details img{
+    border-radius: 10px;
+}
+.details h1{
+    margin: 0;
+    font-size: 32px;
+}
+
+
+
+
+@media (max-width:950px){
+    .van-detail{
+        padding: 2rem;
+    }
+    .details{
+        width: auto;
+    }
+}
