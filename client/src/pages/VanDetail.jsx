@@ -7,7 +7,7 @@ export default function VanDetail() {
   const { id } = useParams();
 
   React.useEffect(() => {
-    fetch(`https://vanlife-mern.vercel.app/vans/${id}`)
+    fetch(`https://vanlife-mern.vercel.app/vans/${id}`,{mode:"no-cors"})
       .then((res) => res.json())
       .then(data => setVan(data))
   }, [id]);
