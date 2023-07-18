@@ -24,6 +24,9 @@ app.get("/vans/:id", (req, res) => {
     const { id } = req.params;
     Van.findById(id).then(data => res.send(data));
 })
+app.get("/", (req, res) => {
+    res.send("Hello")
+})
 
 app.listen(port, () => {
     console.log(`server up on ${port}`);
