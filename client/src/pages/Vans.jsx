@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./Vans.css";
- 
 
 export default function Vans() {
   const [vans, setVans] = React.useState([]);
   React.useEffect(() => {
     fetch("https://vanlife-mern.vercel.app/vans/")
       .then((res) => res.json())
-      .then(data => setVans(data))
-      .catch(err => console.log("Some error occurred:\n"+err))
+      .then((data) => setVans(data))
+      .catch((err) => console.log("Some error occurred:\n" + err));
   }, []);
 
   const vanCards = vans.map((van) => {
