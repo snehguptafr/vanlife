@@ -26,7 +26,7 @@ export default function App() {
         <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
       <footer>
-        <p>Ⓒ 2022 #VANLIFE</p>
+        <p>Ⓒ 2023 #VANLIFE</p>
       </footer>
     </BrowserRouter>
   );
