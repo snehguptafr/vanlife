@@ -30,7 +30,7 @@ export default function VanDetail() {
             <span>/day</span>
           </h2>
           <p>{van.description}</p>
-          <button className="default-btn">Rent this van</button>
+          <button onClick={()=>alert("I see, you've reached the end of the project.\nDon't worry, it is still under progress and will be completed soon :)")} className="default-btn">Rent this van</button>
         </div>
       ) : (
         <h1>Loading...</h1>
