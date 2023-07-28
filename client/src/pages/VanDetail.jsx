@@ -7,7 +7,11 @@ export default function VanDetail() {
   const { id } = useParams();
 
   React.useEffect(() => {
-    fetch(`https://vanlife-mern.vercel.app/vans/${id}`)
+    fetch(`https://vanlife-mern.vercel.app/vans/${id}`, {
+      headers: {
+        'x-api-key': `${import.meta.env.VITE_API_KEY}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => setVan(data))
       .catch((err) => console.log("Some error occurred:\n" + err));
