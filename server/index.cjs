@@ -24,7 +24,7 @@ const port = process.env.PORT || 3000;
 // });
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://vanlife-three.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", 'x-api-key'],
 };
