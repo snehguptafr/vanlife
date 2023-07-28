@@ -24,9 +24,9 @@ const port = process.env.PORT || 3000;
 // });
 
 const corsOptions = {
-  origin: "https://vanlife-three.vercel.app",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
+  allowedHeaders: ["Content-Type", 'x-api-key'],
 };
 
 app.use(cors(corsOptions));
@@ -36,11 +36,21 @@ app.use(cors(corsOptions));
 //   }));
 
 app.get("/vans", (req, res) => {
-  Van.find({}).then((data) => res.send(data));
+  if(req.header('x-api-key') === process.env.API_KEY){
+    Van.find({}).then((data) => res.send(data));
+  }
+  else{
+    res.send({error: "Invalid API key"})
+  }
 });
 app.get("/vans/:id", (req, res) => {
-  const { id } = req.params;
-  Van.findById(id).then((data) => res.send(data));
+  if(req.header('x-api-key') === process.env.API_KEY){
+    const { id } = req.params;
+    Van.findById(id).then((data) => res.send(data));
+  }
+  else{
+    res.send({error: "Invalid API key"})
+  }
 });
 app.get("/", (req, res) => {
   res.send({ message: "Hello" });
