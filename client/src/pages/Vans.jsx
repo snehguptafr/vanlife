@@ -5,7 +5,11 @@ import "./Vans.css";
 export default function Vans() {
   const [vans, setVans] = React.useState([]);
   React.useEffect(() => {
-    fetch("https://vanlife-mern.vercel.app/vans/")
+    fetch(`https://vanlife-mern.vercel.app/vans`, {
+      headers: {
+        'x-api-key': `${import.meta.env.VITE_API_KEY}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => setVans(data))
       .catch((err) => console.log("Some error occurred:\n" + err));
